@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamGrove</title>
+    <link rel="icon" href="img/Glam Grove.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-heading">
+            <img src="img/Glam Grove.png" alt="Logo" class="logo" style="width: 5vw; height: 3.5vw;">
+            <h1 class="brand-name">GlamGrove</h1>
+        </div>
+        <div class="navbar-links">
+            <a href="index.html" class="navbar-link">Home</a>
+            <a href="collection.html" class="navbar-link">Collections</a>
+            <a href="contact.html" class="navbar-link">Contact</a>
+        </div>
+        <div class="navbar-menu-toggle" onclick="showNav()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Side Navbar -->
+    <div class="side-navbar" id="sideNavbar">
+        <div class="side-navbar-header">
+            <i class="fa-solid fa-xmark close-icon" onclick="closeNav()"></i>
+        </div>
+        <div class="side-navbar-links">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collections</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-text">
+            <h1>Level Up Your Style</h1>
+            <p>Discover our latest and stunning collections</p>
+            <button class="header-button">Shop Now</button>
+        </div>
+        <div class="header-image">
+            <img src="img/products/women.webp" alt="Fashion Collection" style="width: 50vw;">
+        </div>
+    </header>
+
+    <!-- Slideshow Section -->
+    <section class="slideshow-container">
+        <div class="slide fade">
+            <img src="img/products/dress.webp" alt="Dresses">
+            <div class="slide-text"><a href="collection.html">Shop Dresses</a></div>
+        </div>
+        <div class="slide fade">
+            <img src="img/products/top.webp" alt="Tops">
+            <div class="slide-text"><a href="collection.html">Shop Tops & Shirts</a></div>
+        </div>
+        <div class="slide fade">
+            <img src="img/products/formals.webp" alt="Formals">
+            <div class="slide-text"><a href="collection.html">Shop Formals</a></div>
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </section>
+
+    <!-- Newsletter Section -->
+    <div class="news">
+        <h2>Join our News Letter</h2>
+        <p>Signup for our email news letter to get exclusive discounts and updates and more</p>
+        <div>
+            <input type="text" class="search">
+        </div>
+        <div>
+            <button>Subscribe</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <h2>GlamGrove</h2>
+            <p>Your one-stop shop for quality fashion, exclusive deals, and excellent service!</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-facebook"></i>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 GlamGrove.com. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Side Navbar
+        function showNav() {
+            document.getElementById('sideNavbar').style.width = '250px';
+        }
+        function closeNav() {
+            document.getElementById('sideNavbar').style.width = '0';
+        }
+
+        // Slideshow
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // Change every 4 seconds
+        }
+
+        function changeSlide(n) {
+            slideIndex += n - 1;
+            showSlides();
+        }
+    </script>
+</body>
+
+</html>
